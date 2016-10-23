@@ -2,12 +2,12 @@ from setuptools import setup
 
 setup(
     name='falcon-jwt-checker',
-    version='0.1.0',
+    version='0.1.1',
     description='Falcon middleware to validate JWTs on routes.',
     author='Justin Hildreth',
     author_email='it@justinhildreth.com',
     url='https://github.com/jhildreth/falcon-jwt-checker',
-    download_url='https://github.com/jhildreth/falcon-jwt-checker/tarball/0.1.0',
+    download_url='https://github.com/jhildreth/falcon-jwt-checker/tarball/0.1.1',
     license='MIT',
     packages=['falcon_jwt_checker'],
     install_requires=[
