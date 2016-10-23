@@ -6,8 +6,8 @@ setup(
     description='Falcon middleware to validate JWTs on routes.',
     author='Justin Hildreth',
     author_email='it@justinhildreth.com',
-    url='https://github.com/jhildreth/falcon_jwt_checker',
-    download_url='https://github.com/jhildreth/falcon_jwt_checker/tarball/0.1.0',
+    url='https://github.com/jhildreth/falcon-jwt-checker',
+    download_url='https://github.com/jhildreth/falcon-jwt-checker/tarball/0.1.0',
     license='MIT',
     packages=['falcon_jwt_checker'],
     install_requires=[
