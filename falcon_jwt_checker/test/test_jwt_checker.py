@@ -16,8 +16,8 @@ class TestJwtChecker:
         with pytest.raises(falcon.HTTPUnauthorized):
             checker = JwtChecker(algorithm='HS256', secret='secret')
 
-            req = MagicMock(spec=falcon.request)
-            resp = MagicMock(spec=falcon.response)
+            req = MagicMock(spec=falcon.Request)
+            resp = MagicMock(spec=falcon.Response)
             resource = {}
             params = {}
 
@@ -30,8 +30,8 @@ class TestJwtChecker:
         with pytest.raises(falcon.HTTPUnauthorized):
             checker = JwtChecker(algorithm='HS256', secret='secret')
 
-            req = MagicMock(spec=falcon.request)
-            resp = MagicMock(spec=falcon.response)
+            req = MagicMock(spec=falcon.Request)
+            resp = MagicMock(spec=falcon.Response)
             resource = {}
             params = {}
 
@@ -44,8 +44,8 @@ class TestJwtChecker:
         with pytest.raises(falcon.HTTPUnauthorized):
             checker = JwtChecker(algorithm='HS256', secret='secret')
 
-            req = MagicMock(spec=falcon.request)
-            resp = MagicMock(spec=falcon.response)
+            req = MagicMock(spec=falcon.Request)
+            resp = MagicMock(spec=falcon.Response)
             resource = {}
             params = {}
 
@@ -60,8 +60,8 @@ class TestJwtChecker:
         checker = JwtChecker(algorithm='HS256', secret='secret',
                              audience='falcon-jwt-checker')
 
-        req = MagicMock(spec=falcon.request)
-        resp = MagicMock(spec=falcon.response)
+        req = MagicMock(spec=falcon.Request)
+        resp = MagicMock(spec=falcon.Response)
         resource = {}
         params = {}
 
@@ -78,8 +78,8 @@ class TestJwtChecker:
                              audience='falcon-jwt-checker',
                              exempt_routes=['/', '/login'])
 
-        req = MagicMock(spec=falcon.request)
-        resp = MagicMock(spec=falcon.response)
+        req = MagicMock(spec=falcon.Request)
+        resp = MagicMock(spec=falcon.Response)
         resource = {}
         params = {}
 
