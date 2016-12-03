@@ -1,6 +1,5 @@
 cffi==1.8.3
-cryptography==1.5.2
-falcon==1.0.0
+falcon==1.1.0
 idna==2.1
 py==1.4.31
 pyasn1==0.1.9
