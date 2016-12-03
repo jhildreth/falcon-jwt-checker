@@ -87,3 +87,40 @@ class TestJwtChecker:
         req.path = '/login'
 
         checker.process_resource(req, resp, resource, params)
+
+        # Test that only the specified route is exempt
+        with pytest.raises(falcon.HTTPUnauthorized):
+            req = MagicMock(spec=falcon.Request)
+            resp = MagicMock(spec=falcon.Response)
+
+            req.headers = {}
+            req.path = '/test'
+
+            checker.process_resource(req, resp, resource, params)
+
+    def test_jwt_checking_is_skipped_for_exempt_methods(self):
+        checker = JwtChecker(algorithm='HS256', secret='secret',
+                             audience='falcon-jwt-checker',
+                             exempt_methods=['OPTIONS'])
+
+        req = MagicMock(spec=falcon.request)
+        resp = MagicMock(spec=falcon.response)
+        resource = {}
+        params = {}
+
+        req.headers = {}
+        req.path = '/test'
+        req.method = 'OPTIONS'
+
+        checker.process_resource(req, resp, resource, params)
+
+        # Test that only the specified method is exempt
+        with pytest.raises(falcon.HTTPUnauthorized):
+            req = MagicMock(spec=falcon.Request)
+            resp = MagicMock(spec=falcon.Response)
+
+            req.headers = {}
+            req.path = '/test'
+            req.method = 'GET'
+
+            checker.process_resource(req, resp, resource, params)
