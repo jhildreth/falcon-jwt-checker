@@ -12,7 +12,7 @@ class JwtChecker:
     """
 
     def __init__(self, secret='', algorithm='', exempt_routes=None,
-                 exempt_methods=None, audience='', leeway=0):
+                 exempt_methods=None, issuer=None, audience='', leeway=0):
         """Set up the JwtChecker, including the expected secret,
         algorithm, audience, and any exempted routes and exempted methods
         for which a jwt shall not be required.
@@ -23,6 +23,7 @@ class JwtChecker:
         self.algorithm = algorithm
         self.exempt_routes = exempt_routes or []
         self.exempt_methods = exempt_methods or []
+        self.issuer = issuer
         self.audience = audience
         self.leeway = leeway
 
@@ -49,6 +50,7 @@ class JwtChecker:
         try:
             claims = jwt.decode(token,
                                 key=self.secret,
+                                issuer=self.issuer,
                                 audience=self.audience,
                                 leeway=self.leeway)
             params['jwt_claims'] = {}
