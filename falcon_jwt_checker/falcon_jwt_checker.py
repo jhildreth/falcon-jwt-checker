@@ -12,7 +12,7 @@ class JwtChecker:
     """
 
     def __init__(self, secret='', algorithm='', exempt_routes=None,
-                 exempt_methods=None, issuer=None, audience='', leeway=0):
+                 exempt_methods=None, issuer=None, audience=None, leeway=0):
         """Set up the JwtChecker, including the expected secret,
         algorithm, audience, and any exempted routes and exempted methods
         for which a jwt shall not be required.

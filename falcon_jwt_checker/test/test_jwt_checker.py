@@ -162,3 +162,19 @@ class TestJwtChecker:
             req.path = '/test'
 
             checker.process_resource(req, resp, resource, params)
+
+    def test_optional_claims_may_be_omitted_from_checker(self):
+        # No iss or aud claims present
+        minimal_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NzY1NTU3MjIsImV4cCI6NzI1MTQ0NTM2Niwic3ViIjoidGVzdF91c2VyIiwicm9sZSI6ImFkbWluIn0.WuEQjLcBEt60suxcEMNLaYpN5PRxPhRUrmwqRvSDl-Y'
+
+        checker = JwtChecker(algorithm='HS256', secret='secret')
+
+        req = MagicMock(spec=falcon.Request)
+        resp = MagicMock(spec=falcon.Response)
+        resource = {}
+        params = {}
+
+        req.headers = {'AUTHORIZATION': 'Bearer ' + minimal_token}
+        req.path = '/test'
+
+        checker.process_resource(req, resp, resource, params)
