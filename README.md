@@ -1,4 +1,4 @@
-#falcon-jwt-checker
+# falcon-jwt-checker
 
 falcon-jwt-checker is a middleware for the [Falcon](https://falconframework.org/) Python web framework. It checks all requests (except those to specified exempt routes or using a specified exempt method) for a valid jwt, rejecting those that do not have one present. It uses [PyJwt](https://github.com/jpadilla/pyjwt) to perform jwt validation.
 
