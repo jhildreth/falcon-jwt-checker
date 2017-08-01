@@ -29,7 +29,12 @@ app = falcon.API(middleware=[jwt_checker])
 
 ...
 ```
- 
+
+In responder methods, add a parameter argument for the keyword argument 'jwt\_claims', e.g. \*\*params, which is added after processing the token for endpoints that are authenticated.
+```
+class StatusResource(object):
+    def on_get(self, req, resp, **params):
+```
 ## Tests
 
 ```
